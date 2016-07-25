@@ -36,28 +36,32 @@
     </header>
 <body>
   <div class="container">
+    <div class="jumbotron">
+      <h1>Choose only oranges</h1>
+    </div>
     <div class="row">
       <div class="col-md-4">
-        <img data-pic='apple1' id="apple1" class="img-responsive" src="http://juliandance.org/wp-content/uploads/2016/01/RedApple.jpg" alt=""/>
+        <img data-pic='apple1' class="img-responsive" src="http://juliandance.org/wp-content/uploads/2016/01/RedApple.jpg" alt=""/>
       </div>
       <div class="col-md-4">
-        <img data-pic='orange1' id='orange1' class="img-responsive"src="https://mlpforums.com/uploads/post_images/img-3003706-2-orange-trans-back__86293_zoom.jpg" id="" alt=""/>
+        <img data-pic='orange1' class="img-responsive orange"src="https://mlpforums.com/uploads/post_images/img-3003706-2-orange-trans-back__86293_zoom.jpg" id="" alt=""/>
       </div>
       <div class="col-md-4">
-        <img data-pic='melon1' id="melon1" class="img-responsive" src="http://mellodrinks.co.uk/wp-content/themes/gromf/assets/img/canteloupe-melon-web.png" alt="" />
+        <img data-pic='melon1' class="img-responsive" src="http://mellodrinks.co.uk/wp-content/themes/gromf/assets/img/canteloupe-melon-web.png" alt="" />
       </div>
     </div>
     <div class="row">
       <div class="col-md-4">
-        <img data-pic='apple2' id="apple2" class="img-responsive" src="http://juliandance.org/wp-content/uploads/2016/01/RedApple.jpg" alt=""/>
+        <img data-pic='apple2' class="img-responsive" src="http://juliandance.org/wp-content/uploads/2016/01/RedApple.jpg" alt=""/>
       </div>
       <div class="col-md-4">
-        <img data-pic='orange2' id="orange2" class="img-responsive"src="https://mlpforums.com/uploads/post_images/img-3003706-2-orange-trans-back__86293_zoom.jpg" id="" alt=""/>
+        <img data-pic='orange2' class="img-responsive orange"src="https://mlpforums.com/uploads/post_images/img-3003706-2-orange-trans-back__86293_zoom.jpg" id="" alt=""/>
       </div>
       <div class="col-md-4">
-        <img data-pic='melon2' id="melon2" class="img-responsive" src="http://mellodrinks.co.uk/wp-content/themes/gromf/assets/img/canteloupe-melon-web.png" alt="" />
+        <img data-pic='melon2' class="img-responsive" src="http://mellodrinks.co.uk/wp-content/themes/gromf/assets/img/canteloupe-melon-web.png" alt="" />
       </div>
     </div>
+    <h2 id="msg"></h2>
   </div>
 </body>
 
@@ -71,8 +75,12 @@
 <script>
 $(function(){
   $('.img-responsive').on('click', function(){
-    var fruitId = $(this).attr('data-pic');
-    $('#'+fruitId).hide();
+      if($(this).is('.orange')){
+      $(this).hide();
+      $('#msg').html('Correct!');
+    } else {
+      $('#msg').html('Nope!');
+    }
   });
 });
 </script>
